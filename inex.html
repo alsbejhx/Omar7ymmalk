@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توزيع مقرر المتون العلمية - فئة الروضة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8fafc;
+        }
+        .bg-navy { background-color: #1e293b; } /* كحلي الهوية */
+        .text-gold { color: #d4af37; }       /* ذهبي الهوية */
+        .border-gold { border-color: #d4af37; }
+        .gradient-header {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+        .week-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .week-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        @media print {
+            .no-print { display: none; }
+            body { background: white; }
+            .week-card { break-inside: avoid; border: 1px solid #ddd !important; }
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Header Section -->
+    <header class="gradient-header text-white pt-8 pb-12 px-4 shadow-xl">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-right">
+            <div class="mb-6 md:mb-0">
+                <h1 class="text-3xl font-extrabold text-gold mb-2">جمعية سبيل الهدى للدعوة والإرشاد</h1>
+                <p class="text-sm opacity-90 italic">المملكة العربية السعودية - حائل</p>
+                <p class="text-xs mt-1 bg-yellow-600/20 inline-block px-2 py-1 rounded">مرخصة برقم (5315) تحت إشراف وزارة الشؤون الإسلامية</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center p-2 mb-2 shadow-inner">
+                    <!-- Placeholder for the Logo -->
+                    <span class="text-navy font-bold text-center text-xs">شعار<br>سبيل الهدى</span>
+                </div>
+                <h2 class="text-xl font-bold border-b-2 border-gold pb-1">توزيع مقرر المتون العلمية</h2>
+                <p class="mt-2 font-medium">فئة: <span class="text-gold">الروضة (تأسيس)</span></p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 -mt-8">
+        <!-- Stats/Info Bar -->
+        <div class="bg-white rounded-xl shadow-md p-4 mb-8 flex flex-wrap justify-around gap-4 text-center border-t-4 border-gold">
+            <div>
+                <span class="block text-gray-500 text-xs">عدد الأسابيع</span>
+                <span class="font-bold text-lg">18 أسبوعاً</span>
+            </div>
+            <div class="w-px bg-gray-200 hidden md:block"></div>
+            <div>
+                <span class="block text-gray-500 text-xs">المستهدف</span>
+                <span class="font-bold text-lg">طلاب التمهيدي والروضة</span>
+            </div>
+            <div class="w-px bg-gray-200 hidden md:block"></div>
+            <button onclick="window.print()" class="no-print bg-navy text-gold px-6 py-2 rounded-lg font-bold hover:bg-slate-700 transition">
+                طباعة الخطة 🖨️
+            </button>
+        </div>
+
+        <!-- Weekly Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" id="grid-container">
+            <!-- JavaScript will populate this -->
+        </div>
+    </main>
+
+    <footer class="bg-slate-100 py-8 text-center text-gray-500 text-sm border-t no-print">
+        <p>© 2024 جميع الحقوق محفوظة لجمعية سبيل الهدى - منطقة حائل</p>
+    </footer>
+
+    <script>
+        const curriculum = [
+            { week: 1, aqida: "من ربك؟ (الله ربي)", letters: "أ / A", numbers: "1" },
+            { week: 2, aqida: "ما دينك؟ (الإسلام ديني)", letters: "ب / B", numbers: "2" },
+            { week: 3, aqida: "من نبيك؟ (محمد ﷺ)", letters: "ت / C", numbers: "3" },
+            { week: 4, aqida: "أين الله؟ (في السماء)", letters: "ث / D", numbers: "4" },
+            { week: 5, aqida: "ذكر الاستيقاظ (الحمد لله الذي أحيانا)", letters: "ج / E", numbers: "5" },
+            { week: 6, aqida: "دخول الخلاء (اللهم إني أعوذ بك..)", letters: "ح / F", numbers: "6" },
+            { week: 7, aqida: "الخروج من الخلاء (غفرانك)", letters: "خ / G", numbers: "7" },
+            { week: 8, aqida: "مراجعة + رفع الأسماء للإدارة", letters: "مراجعة", numbers: "مراجعة" },
+            { week: 9, aqida: "لماذا خلقنا الله؟ (لعبادته)", letters: "د / H", numbers: "8" },
+            { week: 10, aqida: "كلمة التوحيد (لا إله إلا الله)", letters: "ذ / I", numbers: "9" },
+            { week: 11, aqida: "قبل الطعام (بسم الله)", letters: "ر / J", numbers: "10" },
+            { week: 12, aqida: "بعد الطعام (الحمد لله)", letters: "ز / K", numbers: "11" },
+            { week: 13, aqida: "أذكار النوم (باسمك اللهم..)", letters: "س / L", numbers: "12" },
+            { week: 14, aqida: "دعاء لبس الثوب", letters: "ش / M", numbers: "13" },
+            { week: 15, aqida: "بر الوالدين (أدب إسلامي)", letters: "ص / N", numbers: "14" },
+            { week: 16, aqida: "الصدق والأمانة (خلق المسلم)", letters: "ض / O", numbers: "15" },
+            { week: 17, aqida: "مراجعة شاملة للعقيدة", letters: "مراجعة الحروف", numbers: "مراجعة الأرقام" },
+            { week: 18, aqida: "اختبارات ختامية وتكريم", letters: "تقييم نهائي", numbers: "تقييم نهائي" }
+        ];
+
+        const container = document.getElementById('grid-container');
+
+        curriculum.forEach(item => {
+            const card = document.createElement('div');
+            card.className = "week-card bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden";
+            
+            // Highlight special weeks
+            const isSpecial = item.week === 8 || item.week === 18;
+            const headerBg = isSpecial ? 'bg-gold text-navy' : 'bg-navy text-white';
+
+            card.innerHTML = `
+                <div class="${headerBg} px-4 py-3 flex justify-between items-center">
+                    <span class="font-bold text-lg">الأسبوع ${item.week}</span>
+                    <span class="text-xs opacity-80 uppercase font-medium">مقرر الروضة</span>
+                </div>
+                <div class="p-5 space-y-4">
+                    <div class="flex items-start gap-3">
+                        <div class="bg-blue-50 p-2 rounded-lg text-blue-600">🕋</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-blue-800 uppercase">العقيدة والأذكار</h4>
+                            <p class="text-sm font-medium leading-relaxed">${item.aqida}</p>
+                        </div>
+                    </div>
+                    <div class="h-px bg-slate-100"></div>
+                    <div class="flex items-start gap-3">
+                        <div class="bg-green-50 p-2 rounded-lg text-green-600">✍️</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-green-800 uppercase">لغة وأحرف</h4>
+                            <p class="text-sm font-medium">${item.letters}</p>
+                        </div>
+                    </div>
+                    <div class="h-px bg-slate-100"></div>
+                    <div class="flex items-start gap-3">
+                        <div class="bg-orange-50 p-2 rounded-lg text-orange-600">🔢</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-orange-800 uppercase">الأرقام والعد</h4>
+                            <p class="text-sm font-medium">رقم: ${item.numbers}</p>
+                        </div>
+                    </div>
+                </div>
+                ${isSpecial ? '<div class="bg-yellow-50 text-center py-1 text-[10px] font-bold text-yellow-700 uppercase">أسبوع إداري / تقييم</div>' : ''}
+            `;
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
+
